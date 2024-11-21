@@ -1,4 +1,8 @@
-package Wise;
+package Wise.saying;
+
+
+import create.wiseSayingList;
+
 import java.util.*;
 
 public class Saying {
@@ -41,18 +45,5 @@ public class Saying {
             }
         }
         scanner.close();
-    }
-
-    // 명언 데이터를 저장할 클래스
-    static class wiseSayingList {
-        int listNum;
-        String wiseSaying;
-        String author;
-
-        public wiseSayingList(int listNum, String wiseSaying, String author) {
-            this.listNum = listNum;
-            this.wiseSaying = wiseSaying;
-            this.author = author;
-        }
     }
 }

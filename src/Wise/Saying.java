@@ -4,6 +4,7 @@ import java.util.*;
 public class Saying {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
+        int numWiseSaying = 0;
         while (true) {
             System.out.print("명령 ) ");
             String inputCommand = scanner.nextLine();
@@ -14,8 +15,8 @@ public class Saying {
                 System.out.print("작가를 입력해주세요. : ");
                 String author = scanner.nextLine();
                 System.out.printf("작가 : %s \n", author);
-                System.out.println("1번 명언이 등록되었습니다.");
-                break;
+                numWiseSaying++;
+                System.out.printf("%d번 명언이 등록되었습니다.\n",numWiseSaying);
             }
             if (inputCommand.equalsIgnoreCase("종료")) {
                 break;

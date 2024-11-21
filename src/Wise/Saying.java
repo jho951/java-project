@@ -49,10 +49,15 @@ public class Saying {
         String wiseSaying;
         String author;
 
+        // 초기값
+        public wiseSayingList(){
+            this(0, "","");
+        }
+
         public wiseSayingList(int listNum, String wiseSaying, String author) {
-            this.listNum = listNum;
-            this.wiseSaying = wiseSaying;
-            this.author = author;
+            this.listNum=listNum;
+            this.wiseSaying=wiseSaying;
+            this.author=author;
         }
     }
 }

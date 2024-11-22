@@ -52,7 +52,6 @@ class App {
                 System.out.println("알 수 없는 명령입니다. 등록, 목록, 삭제, 종료 중 하나를 입력하세요.");
             }
         }
-
         scanner.close();
     }
 }

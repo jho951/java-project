@@ -1,13 +1,14 @@
 package Wise.saying;
 
-import create.wiseSayingList;
+import create.WiseSayingList;
+
 import java.util.*;
 
 public class Saying {
     public static void main(String[] args) {
         System.out.println("명령 앱");
         Scanner scanner = new Scanner(System.in);
-        List<wiseSayingList> wiseList = new ArrayList<>();
+        List<WiseSayingList> wiseList = new ArrayList<>();
         int count = 0;
         label:
         while (true) {
@@ -21,21 +22,21 @@ public class Saying {
                     String wiseSaying = scanner.nextLine();
                     System.out.print("작가를 입력해주세요: ");
                     String author = scanner.nextLine();
-                    wiseSayingList newWise = new wiseSayingList(count, wiseSaying, author);
+                    WiseSayingList newWise = new WiseSayingList(count, wiseSaying, author);
                     wiseList.add(newWise);
                     System.out.printf("%d번 명언이 등록되었습니다.\n", count);
                     break;
                 // 명령어가 목차일 때
                 case "목록":
                     System.out.println("---- 목록 ----");
-                    for (wiseSayingList wise : wiseList) {
+                    for (WiseSayingList wise : wiseList) {
                         System.out.printf("%d: \"%s\" - %s\n", wise.listNum, wise.wiseSaying, wise.author);
                     }
                     break;
                 // 명령어가 삭제일
                 case "삭제":
                     System.out.println("몇번 명언을 삭제하시겠습니까?");
-                    for (wiseSayingList wise : wiseList) {
+                    for (WiseSayingList wise : wiseList) {
                         System.out.printf("%d: \"%s\" - %s\n", wise.listNum, wise.wiseSaying, wise.author);
                     }
                     System.out.print("삭제 번호: ");

@@ -1,7 +1,8 @@
 package WiseSaying;
 
-import java.util.Scanner;
 import WiseSaying.Elements.WiseSaying;
+
+import java.util.Scanner;
 
 public class Run {
     private static final String EXIT_COMMAND = "exit";

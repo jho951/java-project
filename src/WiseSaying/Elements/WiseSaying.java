@@ -15,7 +15,7 @@ public class WiseSaying {
         public String author;
 
         public WiseSayingList(String title, String author) {
-            this.num = id++; // id 값을 자동으로 할당
+            this.num = id; // id 값을 자동으로 할당
             this.title = title;
             this.author = author;
         }

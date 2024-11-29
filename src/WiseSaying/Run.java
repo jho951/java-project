@@ -1,5 +1,7 @@
 package WiseSaying;
 
+import WiseSaying.Elements.WiseSaying;
+
 import java.util.Scanner;
 
 public class Run {
@@ -34,6 +36,9 @@ public class Run {
                             break; // 명언이 비어있지 않으면 반복 종료
                         }
                     }
+                    WiseSaying.WiseSayingList item = new WiseSaying.WiseSayingList(wiseSayingCommand, authorCommand);
+                    System.out.printf("%d번째 명언이 등록되었습니다.\n", item.num);
+                    System.out.printf("명언: %s, 작가: %s \n", item.title, item.author);
                     continue;
                 }
                 if (inputCommand.isEmpty()) {

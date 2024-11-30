@@ -31,5 +31,9 @@ public class WiseSaying {
     public String getAuthor() {
         return author;
     }
+
+    public static void getError(){
+        System.out.println("현재 등록된 명언이 없습니다.");
+    }
 }
 

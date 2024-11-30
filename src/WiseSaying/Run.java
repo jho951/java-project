@@ -8,6 +8,7 @@ public class Run {
     private static final String EXIT_COMMAND = "exit";
     private static final String REGISTER_COMMAND = "register";
     private static final String LISTING_COMMAND = "list";
+    private static final String DELETING_COMMAND = "delete";
 
     public static void run() {
         try (Scanner scanner = new Scanner(System.in)) {
@@ -24,6 +25,11 @@ public class Run {
                     }
                     case LISTING_COMMAND: {
                         WiseSayingController.handleList();
+                        break;
+                    }
+                    case DELETING_COMMAND: {
+                        WiseSayingController.deleteList(scanner);
+
                         break;
                     }
                     default: {

@@ -36,7 +36,7 @@ public class WiseSayingController {
     // 등록된 명언 리스트 출력
     public static void handleList() {
         if (wiseSayingList.isEmpty()) {
-            System.out.println("현재 등록된 명언이 없습니다.");
+            WiseSaying.getError();
         }else{
             System.out.println("--- 등록된 명언 목록 ---");
             for (WiseSaying wiseSaying : wiseSayingList) {
@@ -46,12 +46,24 @@ public class WiseSayingController {
     }
 
     public static void deleteList(Scanner scanner) {
+        if (wiseSayingList.isEmpty()) {
+            WiseSaying.getError();
+            return;
+        }
         System.out.println("--- 등록된 명언 목록 ---");
         for (WiseSaying wiseSaying : wiseSayingList) {
-            System.out.printf("%d. 명언: %s, 작가: %s \n",wiseSaying.getId(),wiseSaying.getTitle(),wiseSaying.getAuthor());
+            System.out.printf("%d. 명언: %s, 작가: %s \n", wiseSaying.getId(), wiseSaying.getTitle(), wiseSaying.getAuthor());
         }
         System.out.println("몇번 목록을 삭제하시겠습니까?");
         String deleteNum = handleEmptyInput(scanner, "번호");
-        wiseSayingList.removeIf(wiseSaying -> Integer.parseInt(deleteNum) == wiseSaying.getId());
+        // 삭제 조건
+        boolean isDeleted = wiseSayingList.removeIf(wiseSaying -> Integer.parseInt(deleteNum) == wiseSaying.getId());
+        // 요소 존재 여부 확인
+        if (isDeleted) {
+            System.out.println("명언이 삭제되었습니다.");
+        } else {
+            System.out.println("삭제하려는 명언이 존재하지 않습니다.");
+        }
+
     }
 }

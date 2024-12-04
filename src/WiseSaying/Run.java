@@ -2,40 +2,28 @@ package WiseSaying;
 
 import WiseSaying.Controller.WiseSayingController;
 
+import java.util.HashMap;
+import java.util.Map;
 import java.util.Scanner;
 
 public class Run {
     private static final String EXIT_COMMAND = "exit";
-    private static final String REGISTER_COMMAND = "register";
-    private static final String LISTING_COMMAND = "list";
-    private static final String DELETING_COMMAND = "delete";
+    private static final Map<String, Runnable> COMMAND_MAP = new HashMap<>();
 
     public static void run() {
+        WiseSayingController controller = new WiseSayingController();
         try (Scanner scanner = new Scanner(System.in)) {
             while (true) {
-                String command = WiseSayingController.promptCommand(scanner);
+                String command = controller.promptCommand(scanner);
                 switch (command) {
-                    case EXIT_COMMAND: {
+                    case "register" -> controller.handleRegister(scanner);
+                    case "list" -> controller.handleList();
+                    case "delete" -> controller.handleDelete(scanner);
+                    case EXIT_COMMAND -> {
                         System.out.println("프로그램을 종료합니다.");
                         return;
                     }
-                    case REGISTER_COMMAND: {
-                        WiseSayingController.handleRegister(scanner);
-                        break;
-                    }
-                    case LISTING_COMMAND: {
-                        WiseSayingController.handleList();
-                        break;
-                    }
-                    case DELETING_COMMAND: {
-                        WiseSayingController.deleteList(scanner);
-
-                        break;
-                    }
-                    default: {
-                        System.out.println("유효하지 않은 명령어입니다. 다시 입력해주세요.");
-                        break;
-                    }
+                    default -> System.out.println("유효하지 않은 명령어입니다. 다시 입력해주세요.");
                 }
             }
         }

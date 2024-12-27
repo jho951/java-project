@@ -11,6 +11,7 @@ public class App {
            scanner.nextLine();
            System.out.print("작가: ");
            scanner.nextLine();
+           System.out.println("1번 명령이 등록되었습니다.");
        }
        System.out.print("== 종료 ==");
        scanner.close();
